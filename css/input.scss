@@ -1,0 +1,229 @@
+@import "fonts.css";
+body {
+    font: 400 1em "Roboto";
+    &::-webkit-scrollbar {
+        width: .5em;
+    }
+     
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        text-emphasis: center;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background-color: #bfe650;
+      outline: 1px solid rgb(112, 144, 116);
+      border-radius: 1px;
+    }
+}
+
+a {
+    color: #84947B;
+    &:hover {
+        color: #84947B;
+    }
+    &:not([href]){
+        text-decoration: none;
+    }
+}
+
+header{
+    // position: sticky;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    position: absolute; 
+    top: 0;
+    border-bottom: 3px double #bfe650;
+    &.sticy{
+        position: fixed;
+        top:0;
+    }
+    &.sticy nav .menu li a{
+        padding: 15px 0;
+    }
+}
+
+#preloader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #f4f6f4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav {
+    opacity: 0;
+    transition: .5s;
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        li {
+            list-style: none;
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            max-width: 100%;
+            text-align: center;
+            a {
+                display: block;
+                text-decoration: none;
+                color: #222;
+                text-transform: uppercase;
+                padding: 35px 0;
+                transition: .5s;
+                &:hover{
+                    background-color: #bfe650;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    transform: translate(-1000px);
+    transition: 1s;
+    opacity: 0;
+    margin-top: 25px;
+    text-align: center;
+    &.faded {
+        transform: translate(0px);
+        opacity: 1;
+    }
+    a {
+        text-decoration: none;
+        display: inline-block;
+        color: #84947B;
+        width: 50%;
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+
+#main {
+    opacity: 0;
+    padding-top: 35px;
+    transition: .5s;
+    overflow: hidden;
+    margin: 101px 0 0 0;
+    #sidebar {
+        h2 {
+            font: 600 16px "Roboto";
+        }
+        p {
+            font: 300 14px "Roboto";
+        }
+    }
+    .blog-article {
+        figure {
+            overflow: hidden;
+            position: relative;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        section {
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.animate {
+    opacity: 0;
+    transition-delay: 0s;
+    transition-duration: 2s;
+    will-change: transform;
+    &.animated {
+        opacity: 1;
+        transition-delay: 0s;
+        transition-duration: 2s;
+    }
+    &.left{
+        transform: translate(-1000px);
+    }
+    &.left.animated{
+        transform: translate(0px);
+    }
+    &.right{
+        transform: translate(1000px);
+    }
+    &.right.animated{
+        transform: translate(0px);
+    }
+}
+
+footer {
+    margin: 70px 0 0 0;
+    padding: 40px 0 0 0;
+    background:#ccc;
+    .top-footer-line {
+        .bottom-menu {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            li {
+                list-style: none;
+                width: 100%;
+                a{
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .bottom-line{
+        padding: 15px 0;
+        & .col:last-child{
+            text-align:  right;
+        }
+    }
+}
+
+#form{
+    display: flex;
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 20px;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: .5s;
+    &:focus-within{
+        background: red;
+    }
+    input{
+        display: block;
+        width: 100%;
+    }
+}
