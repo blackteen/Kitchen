@@ -9,7 +9,7 @@ function initPreloader(callback) {
     callback(time)
 }
 initPreloader(function (n) {
-    var logo = document.getElementById('logo'),
+    let logo = document.getElementById('logo'),
         nav = document.getElementById('nav'),
         main = document.getElementById('main');
     setTimeout(() => {
@@ -53,6 +53,20 @@ function animateIfVisible() {
     })
 }
 
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
 function animateHeader() {
     let distance = window.pageYOffset;
@@ -63,10 +77,7 @@ function animateHeader() {
         element.classList.remove("sticy")
     }
 }
-
-window.onscroll = function () {
-    animateHeader()
-    animateIfVisible();
-}
+window.addEventListener('scroll', debounce(() => animateHeader(), 10));
+window.addEventListener('scroll', debounce(() => animateIfVisible(), 10));
 
 animateIfVisible();
